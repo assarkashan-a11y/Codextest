@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Windows To-Do</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="window">
+      <div class="title-bar">
+        <div class="title">Windows To-Do</div>
+        <div class="window-controls" aria-hidden="true">
+          <span class="control minimize"></span>
+          <span class="control maximize"></span>
+          <span class="control close"></span>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <button class="tab active" type="button">My Day</button>
+        <button class="tab" type="button">Important</button>
+        <button class="tab" type="button">Planned</button>
+        <button class="tab" type="button">Tasks</button>
+      </div>
+
+      <main class="content">
+        <section class="header">
+          <div>
+            <h1>Today</h1>
+            <p class="subtitle">Keep your day on track with a simple Windows-style list.</p>
+          </div>
+          <div class="date" id="today"></div>
+        </section>
+
+        <form class="task-input" id="task-form">
+          <label class="visually-hidden" for="new-task">Add a task</label>
+          <input id="new-task" name="task" type="text" placeholder="Add a task" autocomplete="off" />
+          <button type="submit">Add</button>
+        </form>
+
+        <ul class="tasks" id="task-list" aria-live="polite"></ul>
+      </main>
+
+      <footer class="status-bar">
+        <span id="task-count">0 tasks</span>
+        <span class="sync">Synced just now</span>
+      </footer>
+    </div>
+
+    <template id="task-template">
+      <li class="task">
+        <label>
+          <input type="checkbox" />
+          <span class="checkmark"></span>
+          <span class="task-text"></span>
+        </label>
+        <button class="ghost" type="button" aria-label="Remove task">✕</button>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
